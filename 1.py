@@ -1,14 +1,58 @@
-
-from flask import Flask, render_template
+from flask import Flask, render_template_string
 import datetime
 
 app = Flask(__name__)
 
+TEMPLATE = """
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Мини-сайт</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: linear-gradient(to right, #74ebd5, #9face6);
+            color: #222;
+            margin-top: 15%;
+        }
+        h1 {
+            font-size: 2.5em;
+        }
+        #time {
+            font-size: 1.8em;
+            margin-top: 20px;
+        }
+    </style>
+    <script>
+        function updateTime() {
+            fetch("/time")
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("time").innerText = data;
+                });
+        }
+        setInterval(updateTime, 1000); // обновляем каждую секунду
+        window.onload = updateTime;
+    </script>
+</head>
+<body>
+    <h1>Добро пожаловать на мой мини-сайт!</h1>
+    <p>Текущее время:</p>
+    <div id="time">Загрузка...</div>
+</body>
+</html>
+"""
+
 @app.route('/')
 def index():
-    now = datetime.datetime.now()
+    return render_template_string(TEMPLATE)
 
-    current_time = now.strftime("%d/%m/%y %H:%M:%S")
-    return current_time
+@app.route('/time')
+def time():
+    now = datetime.datetime.now()
+    return now.strftime("%d/%m/%y %H:%M:%S")
+
 if __name__ == '__main__':
-    app.run(debug=True) # Запускаем веб-сервер в режиме отладки
+    app.run(debug=True)
