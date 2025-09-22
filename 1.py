@@ -8,7 +8,7 @@ TEMPLATE = """
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>web-site</title>
+    <title> web-site </title>
     <style>
         body {
             font-family: Arial, sans-serif;
