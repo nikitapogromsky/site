@@ -13,8 +13,6 @@ TEMPLATE = """
         body {
             font-family: Arial, sans-serif;
             text-align: center;
-            background: linear-gradient(to right, #74ebd5, #9face6);
-            color: #222;
             margin-top: 15%;
         }
         h1 {
