@@ -38,9 +38,9 @@ TEMPLATE = """
     </script>
 </head>
 <body>
-    <h1>Hello6 this is my mini site</h1>
+    <h1>Hello, this is my mini site</h1>
     <p>Time now:</p>
-    <div id="time"></div>
+    <div id="time">Loading...</div>
 </body>
 </html>
 """
