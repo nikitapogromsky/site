@@ -33,14 +33,14 @@ TEMPLATE = """
                     document.getElementById("time").innerText = data;
                 });
         }
-        setInterval(updateTime, 1000); // обновляем каждую секунду
+        setInterval(updateTime, 1000);
         window.onload = updateTime;
     </script>
 </head>
 <body>
-    <h1>Добро пожаловать на мой мини-сайт!</h1>
-    <p>Текущее время по Лондону:</p>
-    <div id="time">Загрузка...</div>
+    <h1>Hello6 this is my mini site</h1>
+    <p>Time now:</p>
+    <div id="time"></div>
 </body>
 </html>
 """
