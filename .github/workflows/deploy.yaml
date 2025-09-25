@@ -15,7 +15,6 @@ jobs:
   deploy:
     if: ${{ github.event_name == 'push' || (github.event.workflow_run.conclusion == 'success') }}
     runs-on: self-hosted
-    labels: [ kubernetes-runner ]
     permissions:
       contents: read
 
