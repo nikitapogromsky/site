@@ -28,8 +28,8 @@ jobs:
    
       - name: Update Deployment image
         run: |
-          kubectl -n pogrom set image deployment/myapp-container myapp-container=ghcr.io/${{ github.repository_owner }}/myapp:latest --record
+          kubectl -n pogrom set image deployment/myapp myapp-container=ghcr.io/${{ github.repository_owner }}/myapp:latest --record
 
       - name: Wait for rollout
         run: |
-          kubectl -n pogrom rollout status deploy/myapp-container --timeout=180s
+          kubectl -n pogrom rollout status deploy/myapp --timeout=180s
