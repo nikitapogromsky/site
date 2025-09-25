@@ -32,4 +32,4 @@ jobs:
 
       - name: Wait for rollout
         run: |
-          kubectl -n pogrom rollout status deploy/myapp --timeout=180s
+          kubectl -n pogrom rollout status deploy/myapp-container --timeout=180s
